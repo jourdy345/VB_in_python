@@ -55,6 +55,17 @@ $ mkproject myproject
 ```
 $ rmvirtualenv venv
 ```
+7. In order to keep your environment consistent, it's a good idea to ''freeze'' the current state of the environment packages. To do this, run
+
+```
+$ pip freeze > requirements.txt
+```
+This will create a requirements.txt file, which contains a simple list of all the packages in the current environment, and their respective versions. You can see the list of installed packages without the requirements format using “pip list”. Later it will be easier for a different developer (or you, if you need to re-create the environment) to install the same packages using the same versions:
+
+```
+$ pip install -r requirements.txt
+```
+Lastly, remember to exclude the virtual environment folder from source control by adding it to the ignore list, for example, `.gitignore`.
   
 # autoenv
 (Only for Mac users) When you `cd` into a directory containing a `.env`, `autoenv` automatically activates the environment. You can install it with `brew`:
